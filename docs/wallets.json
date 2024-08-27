@@ -1,0 +1,15 @@
+[
+  {
+    "app_name": "hibitid",
+    "name": "HibitID",
+    "image": "https://www.hibit.one/favicon.ico",
+    "about_url": "https://www.hibit.one",
+    "bridge": [
+      {
+        "type": "js",
+        "key": "hibitid"
+      }
+    ],
+    "platforms": ["chrome"]
+  }
+]
