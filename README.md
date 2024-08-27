@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# Hibit ID TonConnect Example
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project showcases how to integrate Hibit ID into Dapp using TonConnect
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before install packages, add following config to your `.npmrc`
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+@deland-labs:registry=https://gitlab.com/api/v4/projects/37663507/packages/npm/
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Then install HibitID SDK and TonConnect SDK
+
+```bash
+yarn add @deland-labs/hibit-id-sdk @tonconnect/ui
+```
+
+## Usage
+
+Since Hibit ID is an embedded wallet rather than a browser extension, the TonConnect provider needs to be manually injected first.
+
+Then just follow TonConnect documents to integrate the wallet into your dapp.
 
 ```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+import { injectHibitIdTonConnect } from "@deland-labs/hibit-id-sdk"
+// remember to import styles for the wallet
+import '@deland-labs/hibit-id-sdk/dist/style.css';
+import { CHAIN, TonConnect, TonConnectUI } from "@tonconnect/ui"
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
+// manually inject wallet provider
+injectHibitIdTonConnect(CHAIN.TESTNET)
+
+// init tonconnect sdk 
+const connector = new TonConnect({
+  walletsListSource: `${location.origin}/wallets.json`
 })
+const client: TonConnectUI = (window as any).tonCache || new TonConnectUI({
+  manifestUrl: `${location.origin}/tonconnect-manifest.json`,
+  connector,
+})
+
+// client.openModal()
+// client.sendTransaction()
+// ...
 ```
