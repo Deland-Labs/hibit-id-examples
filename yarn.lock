@@ -12,10 +12,10 @@
   resolved "https://registry.npmmirror.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
-"@deland-labs/hibit-id-sdk@^1.0.0-alpha.20240827081632":
-  version "1.0.0-alpha.20240827081632"
-  resolved "https://gitlab.com/api/v4/projects/37663507/packages/npm/@deland-labs/hibit-id-sdk/-/@deland-labs/hibit-id-sdk-1.0.0-alpha.20240827081632.tgz#692b3c4a3b08f11bb61d592e5104c0698cdbcd60"
-  integrity sha1-aSs8SjsI8Ru2HVkuUQTAaYzbzWA=
+"@deland-labs/hibit-id-sdk@^1.0.0-alpha.20240828023406":
+  version "1.0.0-alpha.20240828023406"
+  resolved "https://gitlab.com/api/v4/projects/37663507/packages/npm/@deland-labs/hibit-id-sdk/-/@deland-labs/hibit-id-sdk-1.0.0-alpha.20240828023406.tgz#9a57e2fb78d188004cc6bb474692efba6df60533"
+  integrity sha1-mlfi+3jRiABMxrtHRpLvum32BTM=
   dependencies:
     "@mixer/postmessage-rpc" "^1.1.4"
     "@passwordless-id/webauthn" "^1.6.1"
