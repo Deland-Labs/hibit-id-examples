@@ -8,7 +8,7 @@ const Icrc29Section: FC = () => {
   const [request, setRequest] = useState<any | null>(null)
   const [response, setResponse] = useState<any | null>(null)
   const [polling, setPolling] = useState(false)
-  const { iframeWindow, getRequestId, setIcrc29Ready } = useContext(IcrcContext)
+  const { signerWindow, getRequestId, setIcrc29Result: setIcrc29Ready } = useContext(IcrcContext)
   const reqIdRef = useRef(0)
   const intervalRef = useRef<NodeJS.Timer | null>(null)
 
@@ -22,7 +22,7 @@ const Icrc29Section: FC = () => {
       clearInterval(intervalRef.current!)
       setPolling(false)
       if (response?.result === 'ready') {
-        setIcrc29Ready(true)
+        setIcrc29Ready(true, event.origin)
       }
     } catch (e) {
       setResponse(e)
@@ -35,7 +35,7 @@ const Icrc29Section: FC = () => {
       reqIdRef.current = getRequestId()
       const req = buildJsonRpcRequest<Icrc29StatusRequest>(reqIdRef.current, IcrcMethods.ICRC29_STATUS, undefined)
       setRequest(req)
-      iframeWindow?.postMessage(
+      signerWindow?.postMessage(
         req,
         '*',
       )

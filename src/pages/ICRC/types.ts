@@ -41,7 +41,7 @@ export type JsonRpcRequest = {
   id: number;
   jsonrpc: '2.0';
   method: IcrcMethods;
-  params?: unknown[];
+  params?: unknown;
 };
 
 export type JsonRpcResponseSuccess<TResult> = {
