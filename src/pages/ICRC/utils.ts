@@ -14,7 +14,7 @@ export const parseJsonRpcResponse = <T>(data: any, reqId: number): JsonRpcRespon
     return null
   }
   if (data.error) {
-    throw new Error(data)
+    throw data
   }
   return data as JsonRpcResponseSuccess<T>
 }
