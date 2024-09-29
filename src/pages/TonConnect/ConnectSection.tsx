@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import Section from "./Section";
+import Section from "../../components/Section";
 import { ConnectedWallet, TonConnectUI } from "@tonconnect/ui";
 
 const ConnectSection: FC<{ client: TonConnectUI }> = ({ client}) => {

@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import Section from "./Section";
+import Section from "../../components/Section";
 import { TonConnectUI } from "@tonconnect/ui";
 import { number, object, string } from 'yup'
 import { useForm } from "react-hook-form";

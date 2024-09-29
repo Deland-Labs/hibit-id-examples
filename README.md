@@ -1,8 +1,12 @@
-# Hibit ID TonConnect Example
+# Hibit ID Examples
+This project showcases how to integrate Hibit ID into Dapp using chain specific protocols.
+Currently support:
+- TonConnect
+- Dfinity ICRC 29 Window Post Message Transport
 
-This project showcases how to integrate Hibit ID into Dapp using TonConnect
+## TonConnect Example
 
-## Installation
+### Installation
 
 Before install packages, add following config to your `.npmrc`
 
@@ -16,7 +20,7 @@ Then install HibitID SDK and TonConnect SDK
 yarn add @deland-labs/hibit-id-sdk @tonconnect/ui
 ```
 
-## Usage
+### Usage
 
 Since Hibit ID is an embedded wallet rather than a browser extension, the TonConnect provider needs to be manually injected first.
 
@@ -44,3 +48,13 @@ const client: TonConnectUI = (window as any).tonCache || new TonConnectUI({
 // client.sendTransaction()
 // ...
 ```
+
+## ICRC 29 Window Post Message Transport Example
+Currently supported standards:
+- ICRC 25
+- ICRC 27
+- ICRC 29
+- ICRC 32
+- ICRC 49
+
+Refer to `relying party` directions in each standard definition of [Official Standards](https://github.com/dfinity/wg-identity-authentication/tree/main)
