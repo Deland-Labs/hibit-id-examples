@@ -5,9 +5,9 @@ import { Icrc49CallCanisterRequest, Icrc49CallCanisterResult, IcrcMethods, IcrcP
 import { IcrcContext } from "./context";
 
 const Icrc49CallCanisterSection: FC = () => {
-  const [canisterId, setCanisterId] = useState('')
-  const [method, setMethod] = useState('')
-  const [argBase64, setArgBase64] = useState('')
+  const [canisterId, setCanisterId] = useState('bkyz2-fmaaa-aaaaa-qaaaq-cai')
+  const [method, setMethod] = useState('transfer')
+  const [argBase64, setArgBase64] = useState('RElETARte24AbAKzsNrDA2ithsqDBQFsA/vKAQKi3pTrBgHYo4yoDX0BAwEdV+ztKgq7E4l1ffuTuwEmw8AtYSjlrJ+WLO5ofQIAAMgB')
   const [request, setRequest] = useState<any | null>(null)
   const [response, setResponse] = useState<any | null>(null)
   const { signerWindow, signerOrigin, signerPrincipal, icrc29Ready, icrc25Permissions, setShowHibitIdModal, getRequestId } = useContext(IcrcContext)
@@ -19,10 +19,11 @@ const Icrc49CallCanisterSection: FC = () => {
       if (!response) {
         return
       }
-      setShowHibitIdModal(false)
       setResponse(response)
     } catch (e) {
       setResponse(e)
+    } finally {
+      setShowHibitIdModal(false)
     }
   }, [setShowHibitIdModal])
 

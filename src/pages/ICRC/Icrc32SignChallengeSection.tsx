@@ -17,10 +17,11 @@ const Icrc32SignChallengeSection: FC = () => {
       if (!response) {
         return
       }
-      setShowHibitIdModal(false)
       setResponse(response)
     } catch (e) {
       setResponse(e)
+    } finally {
+      setShowHibitIdModal(false)
     }
   }, [setShowHibitIdModal])
 

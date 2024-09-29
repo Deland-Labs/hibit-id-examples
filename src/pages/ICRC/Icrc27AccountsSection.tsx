@@ -16,11 +16,12 @@ const Icrc27AccountsSection: FC = () => {
       if (!response) {
         return
       }
-      setShowHibitIdModal(false)
       setResponse(response)
       setSignerPrincipal(response.result.accounts[0].owner)
     } catch (e) {
       setResponse(e)
+    } finally {
+      setShowHibitIdModal(false)
     }
   }, [setShowHibitIdModal, setSignerPrincipal])
 
