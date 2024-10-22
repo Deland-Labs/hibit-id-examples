@@ -1,0 +1,1 @@
+import{j as e}from"./index-DkittW_z.js";const t=({title:s,children:o})=>e.jsxs("section",{children:[e.jsx("h2",{className:"text-lg font-bold",children:s}),e.jsx("div",{className:"mt-2 p-4 border rounded-lg overflow-hidden",children:o})]});export{t as S};
